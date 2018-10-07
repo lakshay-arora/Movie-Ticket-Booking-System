@@ -1,0 +1,67 @@
+TABLE customer
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| username   | varchar(20) | NO   | PRI | NULL    |       |
+| password   | varchar(15) | YES  |     | NULL    |       |
+| email_id   | varchar(30) | YES  |     | NULL    |       |
+| contact_no | varchar(10) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+
+TABLE movie;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| movie        | varchar(20) | NO   | PRI | NULL    |       |
+| review       | text        | YES  |     | NULL    |       |
+| release_date | date        | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+TABLE theatre;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| theatre_id   | varchar(10) | NO   | PRI | NULL    |       |
+| theatre_name | varchar(30) | YES  |     | NULL    |       |
+| city         | varchar(20) | YES  |     | NULL    |       |
+| price_per_t  | int(11)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+TABLE seats_booked;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| show_id | varchar(20) | YES  | MUL | NULL    |       |
+| row     | int(11)     | YES  |     | NULL    |       |
+| columns | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
+TABLE payment;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| payment_id   | varchar(20) | NO   | PRI | NULL    |       |
+| username     | varchar(20) | YES  | MUL | NULL    |       |
+| price        | int(11)     | YES  |     | NULL    |       |
+| payment_type | varchar(20) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+TABLE shows;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| show_id      | varchar(20) | NO   | PRI | NULL    |       |
+| theatre_id   | varchar(10) | YES  | MUL | NULL    |       |
+| start_time   | int(11)     | YES  |     | NULL    |       |
+| end_time     | int(11)     | YES  |     | NULL    |       |
+| language     | varchar(20) | YES  |     | NULL    |       |
+| date_of_show | date        | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+TABLE movie_show;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| show_id    | varchar(20) | YES  | MUL | NULL    |       |
+| movie_name | varchar(20) | YES  | MUL | NULL    |       |
++------------+-------------+------+-----+---------+-------+
